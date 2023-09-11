@@ -4,12 +4,12 @@ import (
 	"math/rand"
 
 	simappparams "cosmossdk.io/simapp/params"
+	"github.com/aljo242/sync/x/sync/keeper"
+	"github.com/aljo242/sync/x/sync/types"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
 	"github.com/cosmos/cosmos-sdk/x/simulation"
-	"sync/x/sync/keeper"
-	"sync/x/sync/types"
 )
 
 func SimulateMsgCreateHeader(
@@ -22,7 +22,7 @@ func SimulateMsgCreateHeader(
 		simAccount, _ := simtypes.RandomAcc(r, accs)
 
 		msg := &types.MsgCreateHeader{
-			Admin: k.GetParams(ctx).Admin,
+			Admin: k.GetAdmin(ctx),
 		}
 
 		txCtx := simulation.OperationInput{
@@ -61,7 +61,7 @@ func SimulateMsgUpdateHeader(
 		index := rand.Int63n(int64(count))
 		header = allHeader[index]
 
-		msg.Admin = k.GetParams(ctx).Admin
+		msg.Admin = k.GetAdmin(ctx)
 		msg.BlockID = header.BlockID
 
 		txCtx := simulation.OperationInput{
@@ -100,7 +100,7 @@ func SimulateMsgDeleteHeader(
 		index := rand.Int63n(int64(count))
 		header = allHeader[index]
 
-		msg.Admin = k.GetParams(ctx).Admin
+		msg.Admin = k.GetAdmin(ctx)
 		msg.BlockID = header.BlockID
 
 		txCtx := simulation.OperationInput{

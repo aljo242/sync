@@ -3,14 +3,14 @@ package sync
 import (
 	"math/rand"
 
+	"github.com/aljo242/sync/testutil/sample"
+	syncsimulation "github.com/aljo242/sync/x/sync/simulation"
+	"github.com/aljo242/sync/x/sync/types"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
 	"github.com/cosmos/cosmos-sdk/x/simulation"
-	"sync/testutil/sample"
-	syncsimulation "sync/x/sync/simulation"
-	"sync/x/sync/types"
 )
 
 // avoid unused import issue

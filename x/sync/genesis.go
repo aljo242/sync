@@ -1,9 +1,9 @@
 package sync
 
 import (
+	"github.com/aljo242/sync/x/sync/keeper"
+	"github.com/aljo242/sync/x/sync/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"sync/x/sync/keeper"
-	"sync/x/sync/types"
 )
 
 // InitGenesis initializes the module's state from a provided genesis state.

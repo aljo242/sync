@@ -10,9 +10,9 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	keepertest "sync/testutil/keeper"
-	"sync/testutil/nullify"
-	"sync/x/sync/types"
+	keepertest "github.com/aljo242/sync/testutil/keeper"
+	"github.com/aljo242/sync/testutil/nullify"
+	"github.com/aljo242/sync/x/sync/types"
 )
 
 func TestHeaderQuerySingle(t *testing.T) {
@@ -27,12 +27,12 @@ func TestHeaderQuerySingle(t *testing.T) {
 	}{
 		{
 			desc:     "First",
-			request:  &types.QueryGetHeaderRequest{Id: msgs[0].Id},
+			request:  &types.QueryGetHeaderRequest{Id: msgs[0].BlockID},
 			response: &types.QueryGetHeaderResponse{Header: msgs[0]},
 		},
 		{
 			desc:     "Second",
-			request:  &types.QueryGetHeaderRequest{Id: msgs[1].Id},
+			request:  &types.QueryGetHeaderRequest{Id: msgs[1].BlockID},
 			response: &types.QueryGetHeaderResponse{Header: msgs[1]},
 		},
 		{

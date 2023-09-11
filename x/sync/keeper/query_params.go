@@ -3,10 +3,10 @@ package keeper
 import (
 	"context"
 
+	"github.com/aljo242/sync/x/sync/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-	"sync/x/sync/types"
 )
 
 func (k Keeper) Params(goCtx context.Context, req *types.QueryParamsRequest) (*types.QueryParamsResponse, error) {

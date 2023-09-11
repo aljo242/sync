@@ -38,8 +38,8 @@ import (
 	"github.com/spf13/pflag"
 	// this line is used by starport scaffolding # root/moduleImport
 
-	"sync/app"
-	appparams "sync/app/params"
+	"github.com/aljo242/sync/app"
+	appparams "github.com/aljo242/sync/app/params"
 )
 
 // NewRootCmd creates a new root command for a Cosmos SDK application

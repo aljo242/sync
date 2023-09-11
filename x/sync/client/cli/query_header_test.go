@@ -11,10 +11,10 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"sync/testutil/network"
-	"sync/testutil/nullify"
-	"sync/x/sync/client/cli"
-	"sync/x/sync/types"
+	"github.com/aljo242/sync/testutil/network"
+	"github.com/aljo242/sync/testutil/nullify"
+	"github.com/aljo242/sync/x/sync/client/cli"
+	"github.com/aljo242/sync/x/sync/types"
 )
 
 func networkWithHeaderObjects(t *testing.T, n int) (*network.Network, []types.Header) {
@@ -23,7 +23,7 @@ func networkWithHeaderObjects(t *testing.T, n int) (*network.Network, []types.He
 	state := types.GenesisState{}
 	for i := 0; i < n; i++ {
 		header := types.Header{
-			Id: uint64(i),
+			BlockID: uint64(i),
 		}
 		nullify.Fill(&header)
 		state.HeaderList = append(state.HeaderList, header)
@@ -50,7 +50,7 @@ func TestShowHeader(t *testing.T) {
 	}{
 		{
 			desc: "found",
-			id:   fmt.Sprintf("%d", objs[0].Id),
+			id:   fmt.Sprintf("%d", objs[0].BlockID),
 			args: common,
 			obj:  objs[0],
 		},

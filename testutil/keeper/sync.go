@@ -5,6 +5,8 @@ import (
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
 	"testing"
 
+	"github.com/aljo242/sync/x/sync/keeper"
+	"github.com/aljo242/sync/x/sync/types"
 	tmdb "github.com/cometbft/cometbft-db"
 	"github.com/cometbft/cometbft/libs/log"
 	tmproto "github.com/cometbft/cometbft/proto/tendermint/types"
@@ -15,8 +17,6 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	typesparams "github.com/cosmos/cosmos-sdk/x/params/types"
 	"github.com/stretchr/testify/require"
-	"sync/x/sync/keeper"
-	"sync/x/sync/types"
 )
 
 func SyncKeeper(t testing.TB) (*keeper.Keeper, sdk.Context) {

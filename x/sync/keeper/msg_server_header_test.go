@@ -6,7 +6,7 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/stretchr/testify/require"
 
-	"sync/x/sync/types"
+	"github.com/aljo242/sync/x/sync/types"
 )
 
 func TestHeaderMsgServerCreate(t *testing.T) {
@@ -15,7 +15,7 @@ func TestHeaderMsgServerCreate(t *testing.T) {
 	for i := 0; i < 5; i++ {
 		resp, err := srv.CreateHeader(ctx, &types.MsgCreateHeader{Admin: admin})
 		require.NoError(t, err)
-		require.Equal(t, i, int(resp.Id))
+		require.Equal(t, i, int(resp.BlockID))
 	}
 }
 
@@ -38,7 +38,7 @@ func TestHeaderMsgServerUpdate(t *testing.T) {
 		},
 		{
 			desc:    "Unauthorized",
-			request: &types.MsgUpdateHeader{Admin: admin, Id: 10},
+			request: &types.MsgUpdateHeader{Admin: admin, BlockID: 10},
 			err:     sdkerrors.ErrKeyNotFound,
 		},
 	}
@@ -77,7 +77,7 @@ func TestHeaderMsgServerDelete(t *testing.T) {
 		},
 		{
 			desc:    "KeyNotFound",
-			request: &types.MsgDeleteHeader{Admin: admin, Id: 10},
+			request: &types.MsgDeleteHeader{Admin: admin, BlockID: 10},
 			err:     sdkerrors.ErrKeyNotFound,
 		},
 	}

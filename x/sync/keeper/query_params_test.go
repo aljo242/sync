@@ -3,10 +3,10 @@ package keeper_test
 import (
 	"testing"
 
+	testkeeper "github.com/aljo242/sync/testutil/keeper"
+	"github.com/aljo242/sync/x/sync/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
-	testkeeper "sync/testutil/keeper"
-	"sync/x/sync/types"
 )
 
 func TestParamsQuery(t *testing.T) {

@@ -110,13 +110,13 @@ import (
 	ibctm "github.com/cosmos/ibc-go/v7/modules/light-clients/07-tendermint"
 	"github.com/spf13/cast"
 
-	syncmodule "sync/x/sync"
-	syncmodulekeeper "sync/x/sync/keeper"
-	syncmoduletypes "sync/x/sync/types"
+	syncmodule "github.com/aljo242/sync/x/sync"
+	syncmodulekeeper "github.com/aljo242/sync/x/sync/keeper"
+	syncmoduletypes "github.com/aljo242/sync/x/sync/types"
 	// this line is used by starport scaffolding # stargate/app/moduleImport
 
-	appparams "sync/app/params"
-	"sync/docs"
+	appparams "github.com/aljo242/sync/app/params"
+	"github.com/aljo242/sync/docs"
 )
 
 const (

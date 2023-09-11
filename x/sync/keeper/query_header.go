@@ -3,13 +3,13 @@ package keeper
 import (
 	"context"
 
+	"github.com/aljo242/sync/x/sync/types"
 	"github.com/cosmos/cosmos-sdk/store/prefix"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/cosmos/cosmos-sdk/types/query"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-	"sync/x/sync/types"
 )
 
 func (k Keeper) HeaderAll(goCtx context.Context, req *types.QueryAllHeaderRequest) (*types.QueryAllHeaderResponse, error) {

@@ -3,8 +3,8 @@ package types_test
 import (
 	"testing"
 
+	"github.com/aljo242/sync/x/sync/types"
 	"github.com/stretchr/testify/require"
-	"sync/x/sync/types"
 )
 
 func TestGenesisState_Validate(t *testing.T) {
@@ -23,10 +23,10 @@ func TestGenesisState_Validate(t *testing.T) {
 			genState: &types.GenesisState{
 				HeaderList: []types.Header{
 					{
-						Id: 0,
+						BlockID: 0,
 					},
 					{
-						Id: 1,
+						BlockID: 1,
 					},
 				},
 				HeaderCount: 2,
@@ -39,10 +39,10 @@ func TestGenesisState_Validate(t *testing.T) {
 			genState: &types.GenesisState{
 				HeaderList: []types.Header{
 					{
-						Id: 0,
+						BlockID: 0,
 					},
 					{
-						Id: 0,
+						BlockID: 0,
 					},
 				},
 			},
@@ -53,7 +53,7 @@ func TestGenesisState_Validate(t *testing.T) {
 			genState: &types.GenesisState{
 				HeaderList: []types.Header{
 					{
-						Id: 1,
+						BlockID: 1,
 					},
 				},
 				HeaderCount: 0,

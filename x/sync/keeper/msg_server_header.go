@@ -2,9 +2,9 @@ package keeper
 
 import (
 	"context"
+	"github.com/aljo242/sync/x/sync/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	"sync/x/sync/types"
 )
 
 func (k msgServer) CreateHeader(goCtx context.Context, msg *types.MsgCreateHeader) (*types.MsgCreateHeaderResponse, error) {

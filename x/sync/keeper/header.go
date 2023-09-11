@@ -3,9 +3,9 @@ package keeper
 import (
 	"encoding/binary"
 
+	"github.com/aljo242/sync/x/sync/types"
 	"github.com/cosmos/cosmos-sdk/store/prefix"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"sync/x/sync/types"
 )
 
 // GetHeaderCount get the total number of header

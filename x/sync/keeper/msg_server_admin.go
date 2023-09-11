@@ -4,8 +4,8 @@ import (
 	"context"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
+	"github.com/aljo242/sync/x/sync/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"sync/x/sync/types"
 )
 
 func (k msgServer) Admin(goCtx context.Context, msg *types.MsgAdmin) (*types.MsgAdminResponse, error) {

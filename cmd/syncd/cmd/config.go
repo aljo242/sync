@@ -3,7 +3,7 @@ package cmd
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"sync/app"
+	"github.com/aljo242/sync/app"
 )
 
 func initSDKConfig() {

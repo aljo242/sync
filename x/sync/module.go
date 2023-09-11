@@ -11,14 +11,14 @@ import (
 
 	abci "github.com/cometbft/cometbft/abci/types"
 
+	"github.com/aljo242/sync/x/sync/client/cli"
+	"github.com/aljo242/sync/x/sync/keeper"
+	"github.com/aljo242/sync/x/sync/types"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/codec"
 	cdctypes "github.com/cosmos/cosmos-sdk/codec/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
-	"sync/x/sync/client/cli"
-	"sync/x/sync/keeper"
-	"sync/x/sync/types"
 )
 
 var (

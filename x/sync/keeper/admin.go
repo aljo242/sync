@@ -4,7 +4,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/store/prefix"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"sync/x/sync/types"
+	"github.com/aljo242/sync/x/sync/types"
 )
 
 // GetAdmin gets the admin

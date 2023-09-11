@@ -1,4 +1,4 @@
-module sync
+module github.com/aljo242/sync
 
 go 1.20
 
@@ -8,9 +8,9 @@ require (
 	cosmossdk.io/simapp v0.0.0-20230323161446-0af178d721ff
 	github.com/cometbft/cometbft v0.37.2
 	github.com/cometbft/cometbft-db v0.8.0
-	github.com/cosmos/cosmos-proto v1.0.0-beta.3
-	github.com/cosmos/cosmos-sdk v0.47.5
-	github.com/cosmos/gogoproto v1.4.11
+	github.com/cosmos/cosmos-proto v1.0.0-beta.2
+	github.com/cosmos/cosmos-sdk v0.47.4
+	github.com/cosmos/gogoproto v1.4.10
 	github.com/cosmos/ibc-go/v7 v7.3.0
 	github.com/ethereum/go-ethereum v1.12.2
 	github.com/golang/protobuf v1.5.3
@@ -21,7 +21,7 @@ require (
 	github.com/spf13/cobra v1.7.0
 	github.com/spf13/pflag v1.0.5
 	github.com/stretchr/testify v1.8.4
-	google.golang.org/genproto/googleapis/api v0.0.0-20230726155614-23370e0ffb3e
+	google.golang.org/genproto/googleapis/api v0.0.0-20230911183012-2d3300fd4832
 	google.golang.org/grpc v1.58.0
 	gopkg.in/yaml.v2 v2.4.0
 )
@@ -161,6 +161,7 @@ require (
 	golang.org/x/exp v0.0.0-20230811145659-89c5cff77bcb // indirect
 	golang.org/x/net v0.14.0 // indirect
 	golang.org/x/oauth2 v0.10.0 // indirect
+	golang.org/x/sync v0.3.0 // indirect
 	golang.org/x/sys v0.12.0 // indirect
 	golang.org/x/term v0.11.0 // indirect
 	golang.org/x/text v0.12.0 // indirect
@@ -179,5 +180,5 @@ require (
 
 replace (
 	github.com/syndtr/goleveldb => github.com/syndtr/goleveldb v1.0.1-0.20210819022825-2ae1ddf74ef7
-	golang.org/x/exp => golang.org/x/exp v0.0.0-20230711153332-06a737ee72cb
+	golang.org/x/exp => golang.org/x/exp v0.0.0-20230420155640-133eef4313cb
 )

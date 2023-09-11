@@ -3,11 +3,11 @@ package sync_test
 import (
 	"testing"
 
+	keepertest "github.com/aljo242/sync/testutil/keeper"
+	"github.com/aljo242/sync/testutil/nullify"
+	"github.com/aljo242/sync/x/sync"
+	"github.com/aljo242/sync/x/sync/types"
 	"github.com/stretchr/testify/require"
-	keepertest "sync/testutil/keeper"
-	"sync/testutil/nullify"
-	"sync/x/sync"
-	"sync/x/sync/types"
 )
 
 func TestGenesis(t *testing.T) {
@@ -15,10 +15,10 @@ func TestGenesis(t *testing.T) {
 		Params: types.DefaultParams(),
 		HeaderList: []types.Header{
 			{
-				Id: 0,
+				BlockID: 0,
 			},
 			{
-				Id: 1,
+				BlockID: 1,
 			},
 		},
 		HeaderCount: 2,

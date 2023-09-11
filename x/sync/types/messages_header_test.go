@@ -3,9 +3,9 @@ package types
 import (
 	"testing"
 
+	"github.com/aljo242/sync/testutil/sample"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/stretchr/testify/require"
-	"sync/testutil/sample"
 )
 
 func TestMsgCreateHeader_ValidateBasic(t *testing.T) {

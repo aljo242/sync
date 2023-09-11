@@ -3,11 +3,11 @@ package simulation
 import (
 	"math/rand"
 
+	"github.com/aljo242/sync/x/sync/keeper"
+	"github.com/aljo242/sync/x/sync/types"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
-	"sync/x/sync/keeper"
-	"sync/x/sync/types"
 )
 
 func SimulateMsgAdmin(

@@ -12,8 +12,8 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/stretchr/testify/require"
 
-	"sync/testutil/network"
-	"sync/x/sync/client/cli"
+	"github.com/aljo242/sync/testutil/network"
+	"github.com/aljo242/sync/x/sync/client/cli"
 )
 
 func TestCreateHeader(t *testing.T) {

@@ -3,10 +3,10 @@ package cli
 import (
 	"strconv"
 
+	"github.com/aljo242/sync/x/sync/types"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/spf13/cobra"
-	"sync/x/sync/types"
 )
 
 func CmdListHeader() *cobra.Command {

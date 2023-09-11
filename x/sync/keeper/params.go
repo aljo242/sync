@@ -1,8 +1,8 @@
 package keeper
 
 import (
+	"github.com/aljo242/sync/x/sync/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"sync/x/sync/types"
 )
 
 // GetParams get all parameters as types.Params
