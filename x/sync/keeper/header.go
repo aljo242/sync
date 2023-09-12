@@ -76,9 +76,9 @@ func (k Keeper) SetHeaderHashMapping(ctx sdk.Context, blockID uint64, hash strin
 }
 
 // GetHeaderHashMapping returns a header block ID from its hash
-func (k Keeper) GetHeaderHashMapping(ctx sdk.Context, hash []byte) (val uint64, found bool) {
+func (k Keeper) GetHeaderHashMapping(ctx sdk.Context, hash string) (val uint64, found bool) {
 	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefixHeader)
-	b := store.Get(hash)
+	b := store.Get([]byte(hash))
 	if b == nil {
 		return val, false
 	}
@@ -87,7 +87,7 @@ func (k Keeper) GetHeaderHashMapping(ctx sdk.Context, hash []byte) (val uint64, 
 }
 
 // GetHeaderFromHash returns a header block ID from its hash
-func (k Keeper) GetHeaderFromHash(ctx sdk.Context, hash []byte) (val types.Header, found bool) {
+func (k Keeper) GetHeaderFromHash(ctx sdk.Context, hash string) (val types.Header, found bool) {
 	id, found := k.GetHeaderHashMapping(ctx, hash)
 	if !found {
 		return val, false

@@ -27,7 +27,7 @@ func CmdBlockByHash() *cobra.Command {
 			queryClient := types.NewQueryClient(clientCtx)
 
 			params := &types.QueryGetHeaderByHashRequest{
-				Hash: []byte(reqBlockHash),
+				Hash: reqBlockHash,
 			}
 
 			res, err := queryClient.HeaderByHash(cmd.Context(), params)

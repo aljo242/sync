@@ -3,11 +3,11 @@ package keeper
 import (
 	"context"
 	"fmt"
+	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"google.golang.org/grpc/status"
 
 	"github.com/aljo242/sync/x/sync/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"google.golang.org/grpc/codes"
 )
 
@@ -20,10 +20,10 @@ func (k Keeper) Prove(goCtx context.Context, req *types.QueryProveRequest) (*typ
 
 	header, found := k.GetHeader(ctx, req.BlockID)
 	if !found {
-		return nil, sdkerrors.ErrKeyNotFound
+		return nil, fmt.Errorf("unable to find header for blockID %d: %w", req.BlockID, sdkerrors.ErrKeyNotFound)
 	}
 
-	proven := header.Hash == req.Proof
+	proven := header.TxHash == req.Proof
 	if !proven {
 		return &types.QueryProveResponse{Valid: proven}, fmt.Errorf("mismatch: header: %s, proof %s", header.Hash, req.Proof)
 	}

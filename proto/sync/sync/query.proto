@@ -69,7 +69,7 @@ message QueryAllHeaderResponse {
 }
 
 message QueryGetHeaderByHashRequest {
-  bytes hash = 1;
+  string hash = 1;
 }
 
 message QueryGetHeaderByHashResponse {

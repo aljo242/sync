@@ -46726,7 +46726,6 @@ paths:
           in: path
           required: true
           type: string
-          format: byte
       tags:
         - Query
   /sync/sync/params:

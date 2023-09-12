@@ -157,7 +157,7 @@ func request_Query_HeaderByHash_0(ctx context.Context, marshaler runtime.Marshal
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "hash")
 	}
 
-	protoReq.Hash, err = runtime.Bytes(val)
+	protoReq.Hash, err = runtime.String(val)
 
 	if err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "hash", err)
@@ -184,7 +184,7 @@ func local_request_Query_HeaderByHash_0(ctx context.Context, marshaler runtime.M
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "hash")
 	}
 
-	protoReq.Hash, err = runtime.Bytes(val)
+	protoReq.Hash, err = runtime.String(val)
 
 	if err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "hash", err)
