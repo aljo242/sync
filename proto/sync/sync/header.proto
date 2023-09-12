@@ -11,4 +11,5 @@ message Header {
   bytes txHash = 5;
   bytes receiptHash = 6;
   bytes hash = 7;
+  uint64 blockNumber = 8;
 }

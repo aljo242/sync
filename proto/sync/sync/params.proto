@@ -1,8 +1,8 @@
 syntax = "proto3";
 package sync.sync;
 
-import "gogoproto/gogo.proto";
 import "cosmos_proto/cosmos.proto";
+import "gogoproto/gogo.proto";
 
 option go_package = "sync/x/sync/types";
 
@@ -11,7 +11,4 @@ message Params {
   option (gogoproto.goproto_stringer) = false;
 
   string admin = 1 [(cosmos_proto.scalar) = "cosmos.AddressString"];
-
 }
-
-

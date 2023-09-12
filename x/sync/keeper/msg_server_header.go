@@ -2,6 +2,7 @@ package keeper
 
 import (
 	"context"
+	"fmt"
 	"github.com/aljo242/sync/x/sync/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
@@ -11,7 +12,7 @@ func (k msgServer) CreateHeader(goCtx context.Context, msg *types.MsgCreateHeade
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
 	if msg.Admin != k.GetAdmin(ctx) {
-		return nil, sdkerrors.Wrap(sdkerrors.ErrUnauthorized, "incorrect admin")
+		return nil, sdkerrors.Wrap(sdkerrors.ErrUnauthorized, fmt.Sprintf("incorrect admin: got %s, expected %s", msg.Admin, k.GetAdmin(ctx)))
 	}
 
 	var header = types.Header{
@@ -21,6 +22,7 @@ func (k msgServer) CreateHeader(goCtx context.Context, msg *types.MsgCreateHeade
 		TxHash:      msg.TxHash,
 		ReceiptHash: msg.ReceiptHash,
 		Hash:        msg.Hash,
+		BlockNumber: msg.BlockNumber,
 	}
 
 	id := k.AppendHeader(

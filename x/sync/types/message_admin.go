@@ -12,6 +12,7 @@ var _ sdk.Msg = &MsgAdmin{}
 func NewMsgAdmin(authority string) *MsgAdmin {
 	return &MsgAdmin{
 		Authority: authority,
+		Admin:     authority,
 	}
 }
 

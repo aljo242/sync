@@ -8,7 +8,7 @@ import (
 var _ paramtypes.ParamSet = (*Params)(nil)
 
 const (
-	DefaultAdmin = "cosmos1cqhgr6emu8fdacqyu8wdh5cuqsgmc8rymyy9"
+	DefaultAdmin = "cosmos13dlm630n20cpfmha3kth7kx00d89nw84n6sz60"
 )
 
 // ParamKeyTable the param key table for launch module
