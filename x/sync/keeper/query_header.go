@@ -53,3 +53,17 @@ func (k Keeper) Header(goCtx context.Context, req *types.QueryGetHeaderRequest) 
 
 	return &types.QueryGetHeaderResponse{Header: header}, nil
 }
+
+func (k Keeper) HeaderByHash(goCtx context.Context, req *types.QueryGetHeaderByHashRequest) (*types.QueryGetHeaderByHashResponse, error) {
+	if req == nil {
+		return nil, status.Error(codes.InvalidArgument, "invalid request")
+	}
+
+	ctx := sdk.UnwrapSDKContext(goCtx)
+	header, found := k.GetHeaderFromHash(ctx, req.Hash)
+	if !found {
+		return nil, sdkerrors.ErrKeyNotFound
+	}
+
+	return &types.QueryGetHeaderByHashResponse{Header: header}, nil
+}

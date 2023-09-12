@@ -24,12 +24,12 @@ const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 type Header struct {
 	BlockID     uint64 `protobuf:"varint,1,opt,name=BlockID,proto3" json:"BlockID,omitempty"`
-	ParentHash  []byte `protobuf:"bytes,2,opt,name=parentHash,proto3" json:"parentHash,omitempty"`
-	UncleHash   []byte `protobuf:"bytes,3,opt,name=uncleHash,proto3" json:"uncleHash,omitempty"`
-	RootHash    []byte `protobuf:"bytes,4,opt,name=rootHash,proto3" json:"rootHash,omitempty"`
-	TxHash      []byte `protobuf:"bytes,5,opt,name=txHash,proto3" json:"txHash,omitempty"`
-	ReceiptHash []byte `protobuf:"bytes,6,opt,name=receiptHash,proto3" json:"receiptHash,omitempty"`
-	Hash        []byte `protobuf:"bytes,7,opt,name=hash,proto3" json:"hash,omitempty"`
+	ParentHash  string `protobuf:"bytes,2,opt,name=parentHash,proto3" json:"parentHash,omitempty"`
+	UncleHash   string `protobuf:"bytes,3,opt,name=uncleHash,proto3" json:"uncleHash,omitempty"`
+	RootHash    string `protobuf:"bytes,4,opt,name=rootHash,proto3" json:"rootHash,omitempty"`
+	TxHash      string `protobuf:"bytes,5,opt,name=txHash,proto3" json:"txHash,omitempty"`
+	ReceiptHash string `protobuf:"bytes,6,opt,name=receiptHash,proto3" json:"receiptHash,omitempty"`
+	Hash        string `protobuf:"bytes,7,opt,name=hash,proto3" json:"hash,omitempty"`
 	BlockNumber uint64 `protobuf:"varint,8,opt,name=blockNumber,proto3" json:"blockNumber,omitempty"`
 }
 
@@ -73,46 +73,46 @@ func (m *Header) GetBlockID() uint64 {
 	return 0
 }
 
-func (m *Header) GetParentHash() []byte {
+func (m *Header) GetParentHash() string {
 	if m != nil {
 		return m.ParentHash
 	}
-	return nil
+	return ""
 }
 
-func (m *Header) GetUncleHash() []byte {
+func (m *Header) GetUncleHash() string {
 	if m != nil {
 		return m.UncleHash
 	}
-	return nil
+	return ""
 }
 
-func (m *Header) GetRootHash() []byte {
+func (m *Header) GetRootHash() string {
 	if m != nil {
 		return m.RootHash
 	}
-	return nil
+	return ""
 }
 
-func (m *Header) GetTxHash() []byte {
+func (m *Header) GetTxHash() string {
 	if m != nil {
 		return m.TxHash
 	}
-	return nil
+	return ""
 }
 
-func (m *Header) GetReceiptHash() []byte {
+func (m *Header) GetReceiptHash() string {
 	if m != nil {
 		return m.ReceiptHash
 	}
-	return nil
+	return ""
 }
 
-func (m *Header) GetHash() []byte {
+func (m *Header) GetHash() string {
 	if m != nil {
 		return m.Hash
 	}
-	return nil
+	return ""
 }
 
 func (m *Header) GetBlockNumber() uint64 {
@@ -129,22 +129,23 @@ func init() {
 func init() { proto.RegisterFile("sync/sync/header.proto", fileDescriptor_dee73a67c9937048) }
 
 var fileDescriptor_dee73a67c9937048 = []byte{
-	// 235 bytes of a gzipped FileDescriptorProto
+	// 252 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x2b, 0xae, 0xcc, 0x4b,
 	0xd6, 0x07, 0x13, 0x19, 0xa9, 0x89, 0x29, 0xa9, 0x45, 0x7a, 0x05, 0x45, 0xf9, 0x25, 0xf9, 0x42,
 	0x9c, 0x20, 0x21, 0x3d, 0x10, 0xa1, 0xf4, 0x86, 0x91, 0x8b, 0xcd, 0x03, 0x2c, 0x27, 0x24, 0xc1,
 	0xc5, 0xee, 0x94, 0x93, 0x9f, 0x9c, 0xed, 0xe9, 0x22, 0xc1, 0xa8, 0xc0, 0xa8, 0xc1, 0x12, 0x04,
 	0xe3, 0x0a, 0xc9, 0x71, 0x71, 0x15, 0x24, 0x16, 0xa5, 0xe6, 0x95, 0x78, 0x24, 0x16, 0x67, 0x48,
-	0x30, 0x29, 0x30, 0x6a, 0xf0, 0x04, 0x21, 0x89, 0x08, 0xc9, 0x70, 0x71, 0x96, 0xe6, 0x25, 0xe7,
+	0x30, 0x29, 0x30, 0x6a, 0x70, 0x06, 0x21, 0x89, 0x08, 0xc9, 0x70, 0x71, 0x96, 0xe6, 0x25, 0xe7,
 	0xa4, 0x82, 0xa5, 0x99, 0xc1, 0xd2, 0x08, 0x01, 0x21, 0x29, 0x2e, 0x8e, 0xa2, 0xfc, 0x7c, 0x88,
 	0x5e, 0x16, 0xb0, 0x24, 0x9c, 0x2f, 0x24, 0xc6, 0xc5, 0x56, 0x52, 0x01, 0x96, 0x61, 0x05, 0xcb,
 	0x40, 0x79, 0x42, 0x0a, 0x5c, 0xdc, 0x45, 0xa9, 0xc9, 0xa9, 0x99, 0x05, 0x10, 0x6d, 0x6c, 0x60,
 	0x49, 0x64, 0x21, 0x21, 0x21, 0x2e, 0x96, 0x0c, 0x90, 0x14, 0x3b, 0x58, 0x0a, 0xcc, 0x06, 0xe9,
 	0x4a, 0x02, 0x39, 0xd9, 0xaf, 0x34, 0x37, 0x29, 0xb5, 0x48, 0x82, 0x03, 0xec, 0x0b, 0x64, 0x21,
-	0x27, 0xed, 0x13, 0x8f, 0xe4, 0x18, 0x2f, 0x3c, 0x92, 0x63, 0x7c, 0xf0, 0x48, 0x8e, 0x71, 0xc2,
-	0x63, 0x39, 0x86, 0x0b, 0x8f, 0xe5, 0x18, 0x6e, 0x3c, 0x96, 0x63, 0x88, 0x12, 0x04, 0x07, 0x53,
-	0x05, 0x24, 0xb4, 0x4a, 0x2a, 0x0b, 0x52, 0x8b, 0x93, 0xd8, 0xc0, 0xa1, 0x65, 0x0c, 0x08, 0x00,
-	0x00, 0xff, 0xff, 0xb1, 0xc7, 0x35, 0x9c, 0x47, 0x01, 0x00, 0x00,
+	0x27, 0xbb, 0x13, 0x8f, 0xe4, 0x18, 0x2f, 0x3c, 0x92, 0x63, 0x7c, 0xf0, 0x48, 0x8e, 0x71, 0xc2,
+	0x63, 0x39, 0x86, 0x0b, 0x8f, 0xe5, 0x18, 0x6e, 0x3c, 0x96, 0x63, 0x88, 0x52, 0x49, 0xcf, 0x2c,
+	0xc9, 0x28, 0x4d, 0xd2, 0x4b, 0xce, 0xcf, 0xd5, 0x4f, 0xcc, 0xc9, 0xca, 0x37, 0x32, 0x31, 0x82,
+	0x84, 0x5c, 0x05, 0x84, 0x2a, 0xa9, 0x2c, 0x48, 0x2d, 0x4e, 0x62, 0x03, 0x07, 0xa0, 0x31, 0x20,
+	0x00, 0x00, 0xff, 0xff, 0xef, 0x00, 0xf8, 0x0f, 0x5a, 0x01, 0x00, 0x00,
 }
 
 func (m *Header) Marshal() (dAtA []byte, err error) {
@@ -330,7 +331,7 @@ func (m *Header) Unmarshal(dAtA []byte) error {
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field ParentHash", wireType)
 			}
-			var byteLen int
+			var stringLen uint64
 			for shift := uint(0); ; shift += 7 {
 				if shift >= 64 {
 					return ErrIntOverflowHeader
@@ -340,31 +341,29 @@ func (m *Header) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				byteLen |= int(b&0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
 			}
-			if byteLen < 0 {
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
 				return ErrInvalidLengthHeader
 			}
-			postIndex := iNdEx + byteLen
+			postIndex := iNdEx + intStringLen
 			if postIndex < 0 {
 				return ErrInvalidLengthHeader
 			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.ParentHash = append(m.ParentHash[:0], dAtA[iNdEx:postIndex]...)
-			if m.ParentHash == nil {
-				m.ParentHash = []byte{}
-			}
+			m.ParentHash = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		case 3:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field UncleHash", wireType)
 			}
-			var byteLen int
+			var stringLen uint64
 			for shift := uint(0); ; shift += 7 {
 				if shift >= 64 {
 					return ErrIntOverflowHeader
@@ -374,31 +373,29 @@ func (m *Header) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				byteLen |= int(b&0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
 			}
-			if byteLen < 0 {
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
 				return ErrInvalidLengthHeader
 			}
-			postIndex := iNdEx + byteLen
+			postIndex := iNdEx + intStringLen
 			if postIndex < 0 {
 				return ErrInvalidLengthHeader
 			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.UncleHash = append(m.UncleHash[:0], dAtA[iNdEx:postIndex]...)
-			if m.UncleHash == nil {
-				m.UncleHash = []byte{}
-			}
+			m.UncleHash = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		case 4:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field RootHash", wireType)
 			}
-			var byteLen int
+			var stringLen uint64
 			for shift := uint(0); ; shift += 7 {
 				if shift >= 64 {
 					return ErrIntOverflowHeader
@@ -408,31 +405,29 @@ func (m *Header) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				byteLen |= int(b&0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
 			}
-			if byteLen < 0 {
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
 				return ErrInvalidLengthHeader
 			}
-			postIndex := iNdEx + byteLen
+			postIndex := iNdEx + intStringLen
 			if postIndex < 0 {
 				return ErrInvalidLengthHeader
 			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.RootHash = append(m.RootHash[:0], dAtA[iNdEx:postIndex]...)
-			if m.RootHash == nil {
-				m.RootHash = []byte{}
-			}
+			m.RootHash = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		case 5:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field TxHash", wireType)
 			}
-			var byteLen int
+			var stringLen uint64
 			for shift := uint(0); ; shift += 7 {
 				if shift >= 64 {
 					return ErrIntOverflowHeader
@@ -442,31 +437,29 @@ func (m *Header) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				byteLen |= int(b&0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
 			}
-			if byteLen < 0 {
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
 				return ErrInvalidLengthHeader
 			}
-			postIndex := iNdEx + byteLen
+			postIndex := iNdEx + intStringLen
 			if postIndex < 0 {
 				return ErrInvalidLengthHeader
 			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.TxHash = append(m.TxHash[:0], dAtA[iNdEx:postIndex]...)
-			if m.TxHash == nil {
-				m.TxHash = []byte{}
-			}
+			m.TxHash = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		case 6:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field ReceiptHash", wireType)
 			}
-			var byteLen int
+			var stringLen uint64
 			for shift := uint(0); ; shift += 7 {
 				if shift >= 64 {
 					return ErrIntOverflowHeader
@@ -476,31 +469,29 @@ func (m *Header) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				byteLen |= int(b&0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
 			}
-			if byteLen < 0 {
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
 				return ErrInvalidLengthHeader
 			}
-			postIndex := iNdEx + byteLen
+			postIndex := iNdEx + intStringLen
 			if postIndex < 0 {
 				return ErrInvalidLengthHeader
 			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.ReceiptHash = append(m.ReceiptHash[:0], dAtA[iNdEx:postIndex]...)
-			if m.ReceiptHash == nil {
-				m.ReceiptHash = []byte{}
-			}
+			m.ReceiptHash = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		case 7:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Hash", wireType)
 			}
-			var byteLen int
+			var stringLen uint64
 			for shift := uint(0); ; shift += 7 {
 				if shift >= 64 {
 					return ErrIntOverflowHeader
@@ -510,25 +501,23 @@ func (m *Header) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				byteLen |= int(b&0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
 			}
-			if byteLen < 0 {
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
 				return ErrInvalidLengthHeader
 			}
-			postIndex := iNdEx + byteLen
+			postIndex := iNdEx + intStringLen
 			if postIndex < 0 {
 				return ErrInvalidLengthHeader
 			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Hash = append(m.Hash[:0], dAtA[iNdEx:postIndex]...)
-			if m.Hash == nil {
-				m.Hash = []byte{}
-			}
+			m.Hash = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		case 8:
 			if wireType != 0 {

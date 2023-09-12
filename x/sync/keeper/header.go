@@ -70,9 +70,9 @@ func (k Keeper) GetHeader(ctx sdk.Context, id uint64) (val types.Header, found b
 }
 
 // SetHeaderHashMapping set a specific header blockID to hash mapping
-func (k Keeper) SetHeaderHashMapping(ctx sdk.Context, blockID uint64, hash []byte) {
+func (k Keeper) SetHeaderHashMapping(ctx sdk.Context, blockID uint64, hash string) {
 	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefixHeaderHashMapping)
-	store.Set(hash, GetHeaderIDBytes(blockID))
+	store.Set([]byte(hash), GetHeaderIDBytes(blockID))
 }
 
 // GetHeaderHashMapping returns a header block ID from its hash

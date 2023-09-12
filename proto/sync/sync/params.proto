@@ -4,7 +4,7 @@ package sync.sync;
 import "cosmos_proto/cosmos.proto";
 import "gogoproto/gogo.proto";
 
-option go_package = "sync/x/sync/types";
+option go_package = "github.com/aljo242/sync/x/sync/types";
 
 // Params defines the parameters for the module.
 message Params {

@@ -14,7 +14,7 @@ const (
 
 var _ sdk.Msg = &MsgCreateHeader{}
 
-func NewMsgCreateHeader(admin string, parentHash, uncleHash, rootHash, txHash, receiptHash, hash []byte) *MsgCreateHeader {
+func NewMsgCreateHeader(admin string, parentHash, uncleHash, rootHash, txHash, receiptHash, hash string) *MsgCreateHeader {
 	return &MsgCreateHeader{
 		Admin:       admin,
 		ParentHash:  parentHash,

@@ -6,7 +6,7 @@ import "gogoproto/gogo.proto";
 import "sync/sync/header.proto";
 import "sync/sync/params.proto";
 
-option go_package = "sync/x/sync/types";
+option go_package = "github.com/aljo242/sync/x/sync/types";
 
 // GenesisState defines the sync module's genesis state.
 message GenesisState {

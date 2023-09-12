@@ -11,13 +11,12 @@ import (
 
 var _ = strconv.Itoa(0)
 
-func CmdBlockByNumber() *cobra.Command {
+func CmdProve() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "block-by-number [block-number]",
-		Short: "Query blockByNumber",
-		Args:  cobra.ExactArgs(1),
+		Use:   "prove",
+		Short: "Query prove",
+		Args:  cobra.ExactArgs(2),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
-			reqBlockNumber := args[0]
 
 			clientCtx, err := client.GetClientQueryContext(cmd)
 			if err != nil {
@@ -26,12 +25,17 @@ func CmdBlockByNumber() *cobra.Command {
 
 			queryClient := types.NewQueryClient(clientCtx)
 
-			params := &types.QueryBlockByNumberRequest{
-
-				BlockNumber: reqBlockNumber,
+			id, err := strconv.Atoi(args[0])
+			if err != nil {
+				return err
 			}
 
-			res, err := queryClient.BlockByNumber(cmd.Context(), params)
+			params := &types.QueryProveRequest{
+				BlockID: uint64(id),
+				Proof:   args[1],
+			}
+
+			res, err := queryClient.Prove(cmd.Context(), params)
 			if err != nil {
 				return err
 			}

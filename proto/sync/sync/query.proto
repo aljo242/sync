@@ -6,32 +6,47 @@ import "cosmos/base/query/v1beta1/pagination.proto";
 import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
 import "sync/sync/header.proto";
+
 // import "cosmos/base/query/v1beta1/pagination.proto";
 import "sync/sync/params.proto";
 
-option go_package = "sync/x/sync/types";
+option go_package = "github.com/aljo242/sync/x/sync/types";
 
 // Query defines the gRPC querier service.
 service Query {
+  
   // Parameters queries the parameters of the module.
-  rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
+  rpc Params (QueryParamsRequest) returns (QueryParamsResponse) {
     option (google.api.http).get = "/sync/sync/params";
+  
   }
-
+  
   // Queries a list of Header items.
-  rpc Header(QueryGetHeaderRequest) returns (QueryGetHeaderResponse) {
+  rpc Header       (QueryGetHeaderRequest      ) returns (QueryGetHeaderResponse      ) {
     option (google.api.http).get = "/sync/sync/header/{id}";
+  
   }
-  rpc HeaderAll(QueryAllHeaderRequest) returns (QueryAllHeaderResponse) {
+  rpc HeaderAll    (QueryAllHeaderRequest      ) returns (QueryAllHeaderResponse      ) {
     option (google.api.http).get = "/sync/sync/header";
+  
+  }
+  rpc HeaderByHash (QueryGetHeaderByHashRequest) returns (QueryGetHeaderByHashResponse) {
+    option (google.api.http).get = "/sync/sync/headerByHash/{hash}";
+  
+  }
+  
+  // Queries a list of Prove items.
+  rpc Prove (QueryProveRequest) returns (QueryProveResponse) {
+    option (google.api.http).get = "/aljo242/sync/sync/prove";
+  
   }
 }
-
 // QueryParamsRequest is request type for the Query/Params RPC method.
 message QueryParamsRequest {}
 
 // QueryParamsResponse is response type for the Query/Params RPC method.
 message QueryParamsResponse {
+  
   // params holds all the parameters of this module.
   Params params = 1 [(gogoproto.nullable) = false];
 }
@@ -49,6 +64,24 @@ message QueryAllHeaderRequest {
 }
 
 message QueryAllHeaderResponse {
-  repeated Header Header = 1 [(gogoproto.nullable) = false];
-  cosmos.base.query.v1beta1.PageResponse pagination = 2;
+  repeated Header                                 Header     = 1 [(gogoproto.nullable) = false];
+           cosmos.base.query.v1beta1.PageResponse pagination = 2;
 }
+
+message QueryGetHeaderByHashRequest {
+  bytes hash = 1;
+}
+
+message QueryGetHeaderByHashResponse {
+  Header Header = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryProveRequest {
+  uint64 blockID = 1;
+  string proof = 2;
+}
+
+message QueryProveResponse {
+  bool valid = 1;
+}
+

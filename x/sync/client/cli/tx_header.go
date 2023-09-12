@@ -22,7 +22,7 @@ func CmdCreateHeader() *cobra.Command {
 				return err
 			}
 
-			tmpBz := make([]byte, 10)
+			tmpBz := ""
 
 			msg := types.NewMsgCreateHeader(clientCtx.GetFromAddress().String(),
 				tmpBz, tmpBz, tmpBz, tmpBz, tmpBz, tmpBz)

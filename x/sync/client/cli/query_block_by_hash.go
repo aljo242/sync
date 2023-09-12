@@ -13,7 +13,7 @@ var _ = strconv.Itoa(0)
 
 func CmdBlockByHash() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "block-by-hash [block-hash]",
+		Use:   "header-by-hash [hash]",
 		Short: "Query blockByHash",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
@@ -26,12 +26,11 @@ func CmdBlockByHash() *cobra.Command {
 
 			queryClient := types.NewQueryClient(clientCtx)
 
-			params := &types.QueryBlockByHashRequest{
-
-				BlockHash: []byte(reqBlockHash),
+			params := &types.QueryGetHeaderByHashRequest{
+				Hash: []byte(reqBlockHash),
 			}
 
-			res, err := queryClient.BlockByHash(cmd.Context(), params)
+			res, err := queryClient.HeaderByHash(cmd.Context(), params)
 			if err != nil {
 				return err
 			}
