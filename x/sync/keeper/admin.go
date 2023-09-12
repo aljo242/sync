@@ -10,8 +10,7 @@ import (
 // GetAdmin gets the admin
 func (k Keeper) GetAdmin(ctx sdk.Context) string {
 	store := prefix.NewStore(ctx.KVStore(k.storeKey), []byte{})
-	byteKey := types.KeyPrefix(types.AdminKey)
-	bz := store.Get(byteKey)
+	bz := store.Get(types.KeyPrefixAdmin)
 
 	// Count doesn't exist: no element
 	if bz == nil {
@@ -25,6 +24,5 @@ func (k Keeper) GetAdmin(ctx sdk.Context) string {
 // SetAdmin sets the admin
 func (k Keeper) SetAdmin(ctx sdk.Context, admin string) {
 	store := prefix.NewStore(ctx.KVStore(k.storeKey), []byte{})
-	byteKey := types.KeyPrefix(types.AdminKey)
-	store.Set(byteKey, []byte(admin))
+	store.Set(types.KeyPrefixAdmin, []byte(admin))
 }

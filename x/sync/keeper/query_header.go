@@ -21,7 +21,7 @@ func (k Keeper) HeaderAll(goCtx context.Context, req *types.QueryAllHeaderReques
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
 	store := ctx.KVStore(k.storeKey)
-	headerStore := prefix.NewStore(store, types.KeyPrefix(types.HeaderKey))
+	headerStore := prefix.NewStore(store, types.KeyPrefixHeader)
 
 	pageRes, err := query.Paginate(headerStore, req.Pagination, func(key []byte, value []byte) error {
 		var header types.Header

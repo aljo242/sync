@@ -16,6 +16,7 @@ func (k msgServer) CreateHeader(goCtx context.Context, msg *types.MsgCreateHeade
 	}
 
 	var header = types.Header{
+		BlockID:     msg.BlockNumber,
 		ParentHash:  msg.ParentHash,
 		UncleHash:   msg.UncleHash,
 		RootHash:    msg.RootHash,
@@ -25,13 +26,14 @@ func (k msgServer) CreateHeader(goCtx context.Context, msg *types.MsgCreateHeade
 		BlockNumber: msg.BlockNumber,
 	}
 
-	id := k.AppendHeader(
-		ctx,
-		header,
-	)
+	k.SetHeader(ctx, header)
+	k.SetHeaderHashMapping(ctx, msg.BlockNumber, header.Hash)
+	k.SetHeaderHashMapping(ctx, msg.BlockNumber, header.TxHash)
+	k.SetHeaderHashMapping(ctx, msg.BlockNumber, header.ReceiptHash)
+	k.SetHeaderHashMapping(ctx, msg.BlockNumber, header.RootHash)
 
 	return &types.MsgCreateHeaderResponse{
-		BlockID: id,
+		BlockID: header.BlockID,
 	}, nil
 }
 

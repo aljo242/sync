@@ -14,12 +14,9 @@ const (
 	MemStoreKey = "mem_sync"
 )
 
-func KeyPrefix(p string) []byte {
-	return []byte(p)
-}
-
-const (
-	HeaderKey      = "Header/value/"
-	HeaderCountKey = "Header/count/"
-	AdminKey       = "Admin"
+var (
+	KeyPrefixHeader            = []byte{0x01}
+	KeyPrefixHeaderCount       = []byte{0x01}
+	KeyPrefixAdmin             = []byte{0x02}
+	KeyPrefixHeaderHashMapping = []byte{0x02}
 )
