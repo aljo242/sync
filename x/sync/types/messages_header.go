@@ -3,7 +3,6 @@ package types
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	ethcommon "github.com/ethereum/go-ethereum/common"
 )
 
 const (
@@ -51,29 +50,6 @@ func (msg *MsgCreateHeader) ValidateBasic() error {
 	_, err := sdk.AccAddressFromBech32(msg.Admin)
 	if err != nil {
 		return sdkerrors.Wrapf(sdkerrors.ErrInvalidAddress, "invalid admin address (%s)", err)
-	}
-
-	const (
-		lenHash = ethcommon.HashLength
-	)
-
-	if len(msg.ParentHash) != lenHash {
-		return sdkerrors.Wrapf(ErrInvalidHash, "invalid length (%s)", err)
-	}
-	if len(msg.UncleHash) != lenHash {
-		return sdkerrors.Wrapf(ErrInvalidHash, "invalid length (%s)", err)
-	}
-	if len(msg.RootHash) != lenHash {
-		return sdkerrors.Wrapf(ErrInvalidHash, "invalid length (%s)", err)
-	}
-	if len(msg.TxHash) != lenHash {
-		return sdkerrors.Wrapf(ErrInvalidHash, "invalid length (%s)", err)
-	}
-	if len(msg.ReceiptHash) != lenHash {
-		return sdkerrors.Wrapf(ErrInvalidHash, "invalid length (%s)", err)
-	}
-	if len(msg.Hash) != lenHash {
-		return sdkerrors.Wrapf(ErrInvalidHash, "invalid length (%s)", err)
 	}
 
 	return nil
